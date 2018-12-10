@@ -261,11 +261,6 @@ if __name__ == "__main__":
     # This is placeholder until unit tests are in place
     JMDICT = "./JMdict"
     dictionary = JMDictionary(JMDICT)
-    # Simple Demonstrative Method
-    for key, item in dictionary.word_to_entries.iteritems():
-    #for key,item in dictionary.iteritems():
-    #for item in dictionary.lookup(u'\u79c1'):  #  u'\u79c1'  watashi kanji
-        # print ite,m.senses, item.entry_number
         for indivitem in item:
             if item[0].kanji_element.text is not None:
                 print "NA[" + item[0].kanji_element.text + "]\t[NA]\t/",\
