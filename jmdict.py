@@ -261,8 +261,10 @@ if __name__ == "__main__":
     # This is placeholder until unit tests are in place
     JMDICT = "./JMdict"
     dictionary = JMDictionary(JMDICT)
+    for key, item in dictionary.word_to_entries.iteritems():
+
         for indivitem in item:
             if item[0].kanji_element.text is not None:
-                print "NA[" + item[0].kanji_element.text + "]\t[NA]\t/",\
-                      item[0].reading_element.text,\
-                      item[0].senses[0].glossaries[0].text + "/"
+                kanji = item[0].kanji_element.text
+                print kanji + "[" + kanji + "]\t[" + item[0].reading_element.text +"]\t",\
+                        item[0].senses[0].glossaries[0].text
