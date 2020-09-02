@@ -245,7 +245,7 @@ class JMDictionary(object):
             if word_node != None: # Has Kanji Entry
                 #is word in list, if not, add it
                 word = word_node.text
-                if self.word_to_entries.has_key(word) != True:
+                if (word in self.word_to_entries) != True:
                     self.word_to_entries[word] = []
                 self.word_to_entries[word].append(Entry(entry))
 
@@ -254,17 +254,13 @@ class JMDictionary(object):
 
 
 if __name__ == "__main__":
-    import sys
-
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
     # This is placeholder until unit tests are in place
     JMDICT = "./JMdict"
     dictionary = JMDictionary(JMDICT)
-    for key, item in dictionary.word_to_entries.iteritems():
+    for key, item in dictionary.word_to_entries.items():
 
         for indivitem in item:
             if item[0].kanji_element.text is not None:
                 kanji = item[0].kanji_element.text
-                print kanji + "[" + kanji + "]\t[" + item[0].reading_element.text +"]\t",\
-                        item[0].senses[0].glossaries[0].text
+                print(kanji + "[" + kanji + "]\t[" + item[0].reading_element.text +"]\t",\
+                        item[0].senses[0].glossaries[0].text)
